@@ -56,12 +56,12 @@ async def notify_admin(bot: Bot, admins: list[int], full_name: str, action: str)
 
 
 def construct_promo_code() -> str:
-    """Construct currently valid promo-code of the format: BAYMAX{MM}{YYYY}"""
+    """Construct currently valid promo-code of the format: ******{MM}{YYYY}"""
     current_date = datetime.now(timezone.utc)
 
     month = current_date.strftime("%m")
     year = current_date.strftime("%Y")
 
-    promo_code = f"BAYMAX{month}{year}"
+    promo_code = f"******{month}{year}"
 
     return promo_code
