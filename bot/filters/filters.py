@@ -12,8 +12,8 @@ logger = logging.getLogger(__name__)
 
 
 class UserExists(BaseFilter):
-    """Check if a user exists in the database."""
     async def __call__(self, message: Message, db: DatabaseHandler) -> bool:
+        """Check if a user exists in the database."""
         return db.check_user_exists(user_id=message.from_user.id)
 
 
