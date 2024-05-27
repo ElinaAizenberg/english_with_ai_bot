@@ -1,0 +1,8 @@
+BOT_TOKEN=bot_token
+ADMIN_IDS=123456
+API_KEY=api_key
+HOST=host
+PORT=0000
+DB_USER=user
+PASSWORD=password
+DATABASE=database

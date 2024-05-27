@@ -1,0 +1,6 @@
+aiogram==3.4.1
+APScheduler==3.10.4
+fluentogram==1.1.6
+openai==1.28.1
+environs==11.0.0
+psycopg2-binary
