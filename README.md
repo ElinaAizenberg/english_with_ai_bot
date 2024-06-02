@@ -1,6 +1,13 @@
 # Telegram Bot: Practice English with AI
 <a href="https://t.me/english_with_art_bot">Telegram bot</a>  that helps users practice new vocabulary in English with the help of GPT-4 and DALL-E 3 models.
 
+## Table of Contents
+
+- [Description](#description)
+- [Localization](#localization)
+- [Run Telegram bot](#run-telegram-bot)
+
+
 ## Description
 User starts subscription pressing <b>Start</b> button.
 
@@ -81,10 +88,60 @@ If you wish to add support for a new language, follow these steps:
    - create a translator FluentTranslator 
 
 
-## Structure
 ## Run Telegram bot
-### Requirements
-### Env. variables
-### Docker
+
+This bot is deployed and running on Amazon Web Services. Simply click <a href="https://t.me/english_with_art_bot">Practice English with AI</a> to start using it.
+
+If you want to run it yourself, then follow the steps.
+
+1. Install all dependendencies:
+```
+pip install -r requirements.txt
+```
+2. This bot uses a PostgreSQL database on Amazon Web Services. If you want to run this bot with your own database, you need to create two tables:
+```
+CREATE TABLE users (
+    user_id SERIAL PRIMARY KEY,
+    level TEXT NOT NULL DEFAULT 'C1',
+    status INTEGER NOT NULL DEFAULT 0,
+    sign_up_date TIMESTAMP,
+    language TEXT NOT NULL DEFAULT 'ru',
+    points INTEGER NOT NULL DEFAULT 0,
+    topic TEXT NOT NULL DEFAULT 'general',
+    subscription_end TIMESTAMP,
+    day_word INTEGER NOT NULL DEFAULT 0,
+    day_idiom INTEGER NOT NULL DEFAULT 0,
+    checks INTEGER NOT NULL DEFAULT 0
+);
+```
+```
+CREATE TABLE vocabulary (
+    user_id INTEGER NOT NULL UNIQUE,
+    word TEXT,
+    idiom TEXT,
+    PRIMARY KEY(user_id)
+);
+```
+
+3. Create a configuration file with tokens for the Telegram Bot API, OpenAI API, etc. Check the .env file.
+4. Run bot:
+   
+   4.1 Run main.py. You need to provide the path to the configuration file; otherwise, the bot will try to get variables from the environment:
+   ```
+   python3 -m bot.main ./.env 
+   ```
+   4.2 with Docker
+   
+   - Build the Docker image (environment variables are created within the Docker image from the configuration file):
+   ```
+   python3 -m build
+   ```
+   
+   - Run the Docker container:
+   ```
+   docker run -v telegram-bot:latest
+   ```
+   
+
 
 
