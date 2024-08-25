@@ -90,7 +90,7 @@ If you wish to add support for a new language, follow these steps:
 
 ## Run Telegram bot
 
-This bot is deployed and running on Amazon Web Services. Simply click <a href="https://t.me/english_with_art_bot">Practice English with AI</a> to start using it.
+This bot is deployed and running on Koyeb. Simply click <a href="https://t.me/english_with_art_bot">Practice English with AI</a> to start using it.
 
 If you want to run it yourself, then follow the steps.
 
@@ -98,7 +98,7 @@ If you want to run it yourself, then follow the steps.
 ```
 pip install -r requirements.txt
 ```
-2. This bot uses a PostgreSQL database on Amazon Web Services. If you want to run this bot with your own database, you need to create two tables:
+2. This bot uses a PostgreSQL database on Neon. If you want to run this bot with your own database, you need to create two tables:
 ```
 CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
